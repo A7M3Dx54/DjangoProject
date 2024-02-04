@@ -1,0 +1,63 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Task planner: users</title>
+        {% load bootstrap5 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">To Do App</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="http://127.0.0.1:8000/website/">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" href="http://127.0.0.1:8000/website/users/">Users</a>
+                      </li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <br>
+            <h2>Users</h2>
+            <br>
+
+            <ul>
+                <a href="add/"><button class="btn btn-outline-light">+ New user</button></a>
+                {% for user in users %}
+                    
+                    <div class="card bg-secondary text-light">
+                        <div class="card-body">
+                          <h5 class="card-title"><b>Username: </b>{{ user.username }}</h5>
+                          <a href="detail/{{ user.id }}/" class="position-absolute bottom-0 end-0 btn btn-warning">
+                            Manage</a>
+                        </div>
+                      </div>
+                      <br>
+                {% endfor %}
+            </ul>
+            
+        </div>
+    </body>
+
+    <style>
+        body{
+            background-color:#303134;
+        }
+
+        h2{
+            color: white;
+        }
+    </style>
+</html>
